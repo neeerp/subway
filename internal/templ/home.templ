@@ -1,0 +1,20 @@
+package templ
+
+templ Home(station string) {
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Random Station!</title>
+  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+</head>
+
+<body>
+  <h1>Random Subway Station!</h1>
+  <p>Your random subway station to explore today is <b><span id="station">{ station }</span></b> station!</p>
+  <br />
+  <button hx-get="/station" hx-trigger="click" hx-target="#station">Again!!</button>
+</body>
+
+</html>
+}
