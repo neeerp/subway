@@ -29,20 +29,20 @@ func Home(station string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>Random Station!</title><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script></head><body><h1>Random Subway Station!</h1><p>Your random subway station to explore today is <b><span id=\"station\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>Random Station!</title><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script><link rel=\"stylesheet\" type=\"text/css\" href=\"https://david-go-subway-page.s3.amazonaws.com/style.css\"></head><body class=\"bg-gray-100 flex items-center justify-center min-h-screen\"><div class=\"bg-white p-8 rounded-1g shadow-md text-center\"><h1 class=\"text-4xl font-bold mb-6\">Random Subway Station!</h1><p class=\"text-xl\">Your random subway station to explore today is <b><span id=\"station\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(station)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templ/home.templ`, Line: 14, Col: 83}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templ/home.templ`, Line: 15, Col: 83}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></b> station!</p><br><button hx-get=\"/station\" hx-trigger=\"click\" hx-target=\"#station\">Again!!</button></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</span></b> station!</p><button class=\"mt-8 px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-300\" hx-get=\"/station\" hx-trigger=\"click\" hx-target=\"#station\">Again!!</button></div></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

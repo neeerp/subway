@@ -1,20 +1,27 @@
 package templ
 
 templ Home(station string) {
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Random Station!</title>
-  <script src="https://unpkg.com/htmx.org@2.0.3"></script>
-</head>
-
-<body>
-  <h1>Random Subway Station!</h1>
-  <p>Your random subway station to explore today is <b><span id="station">{ station }</span></b> station!</p>
-  <br />
-  <button hx-get="/station" hx-trigger="click" hx-target="#station">Again!!</button>
-</body>
-
-</html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Random Station!</title>
+			<script src="https://unpkg.com/htmx.org@2.0.3"></script>
+			<link rel="stylesheet" type="text/css" href="https://david-go-subway-page.s3.amazonaws.com/style.css"/>
+		</head>
+		<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+			<div class="bg-white p-8 rounded-1g shadow-md text-center">
+				<h1 class="text-4xl font-bold mb-6">Random Subway Station!</h1>
+				<p class="text-xl">
+					Your random subway station to explore today is <b><span id="station">{ station }</span></b>
+					station!
+				</p>
+				<button
+					class="mt-8 px-6 py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-300"
+					hx-get="/station"
+					hx-trigger="click"
+					hx-target="#station"
+				>Again!!</button>
+			</div>
+		</body>
+	</html>
 }

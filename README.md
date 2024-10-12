@@ -5,7 +5,9 @@ This is a simple webpage hosted on AWS Lambda using go templ + HTMX. It suggests
 See this hosted at https://subway.davidg.xyz
 
 ## Build Instructions
-Run `./bundle.sh` and then manually upload the individual lambdas to AWS like the primitive you are.
+Run `./bundle.sh` to regenerate templates, bundle lambda handlers, and compile CSS. 
+
+Afterwards, you have to manually deploy the handlers to Lambda, and you need to manually drop `style.css` to the (hardcoded) S3 bucket. Yes, it's painful :)
 
 ## TODO List
 [ ] Automate deployment to AWS so I don't have to manually upload this stuff every time I make a change

@@ -1,2 +1,4 @@
 bootstrap
 *.zip
+
+node_modules
