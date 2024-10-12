@@ -104,7 +104,7 @@ func (s SubwayStation) String() string {
 	case Davisville:
 		return "Davisville"
 	case DonMills:
-		return "DonMills"
+		return "Don Mills"
 	case Donlands:
 		return "Donlands"
 	case DownsviewPark:
@@ -202,7 +202,7 @@ func (s SubwayStation) String() string {
 	case Union:
 		return "Union"
 	case Vaughan:
-		return "Vaughan"
+		return "Vaughan Metropolitan Centre"
 	case VictoriaPark:
 		return "Victoria Park"
 	case Warden:
