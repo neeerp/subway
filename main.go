@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"math/rand"
-	"text/template"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -233,35 +232,17 @@ func (s SubwayStation) String() string {
 
 const numStations = 70
 
-// Handler is our Lambda function handler
-func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+func getRandomStation() string {
 	randomIndex := rand.Intn(numStations)
 	station := SubwayStation(randomIndex)
 
-	const htmlTemplate = `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Random Station!</title>
-</head>
-<body>
-    <h1>Random Subway Station!</h1>
-    <p>Your random subway station to explore today is <b>{{.}}</b> station!</p>
-    <br>
-    <button onClick="window.location.reload();">Again!!</button>
-</body>
-</html>
-`
-	tmpl, err := template.New("html").Parse(htmlTemplate)
-	if err != nil {
-		panic(err)
-	}
+	return station.String()
+}
 
+func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	var buf bytes.Buffer
-	if err = tmpl.Execute(&buf, station.String()); err != nil {
-		panic(err)
-	}
-
+	component := home(getRandomStation())
+	component.Render(context.Background(), &buf)
 	html := buf.String()
 
 	return events.APIGatewayProxyResponse{
