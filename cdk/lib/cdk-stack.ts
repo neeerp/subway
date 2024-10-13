@@ -6,7 +6,10 @@ import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
 
 export class CdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
+    super(scope, id, {
+      ...props,
+      analyticsReporting: false, // Disable CDK Metadata
+    });
 
     const staticAssetBucket = new s3.Bucket(this, "StaticAssetBucket", {
       removalPolicy: cdk.RemovalPolicy.RETAIN,
