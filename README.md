@@ -4,11 +4,18 @@ This is a simple webpage hosted on AWS Lambda using go templ + HTMX. It suggests
 
 See this hosted at https://subway.davidg.xyz
 
-## Build Instructions
-Run `./bundle.sh` to regenerate templates, bundle lambda handlers, and compile CSS. 
+## Build and Deploy Instructions
+Run `./bundle.sh` to regenerate templates, bundle lambda handlers, and compile
+CSS with tailwind. 
 
-Afterwards, you have to manually deploy the handlers to Lambda, and you need to manually drop `style.css` to the (hardcoded) S3 bucket. Yes, it's painful :)
+Deploy by `cd`-ing into the `cdk/` directory and running `cdk deploy`. Note
+that the infrastructure as code currently only creates the Lambda functions and
+static asset S3 bucket, however it does not create all necessary
+infrastructure. I'll try to get to that eventually.
 
 ## TODO List
-[ ] Automate deployment to AWS so I don't have to manually upload this stuff every time I make a change
-[ ] Use Tailwind CSS to make things ✨ p r e t t y ✨
+- [X] Automate deployment to AWS so I don't have to manually upload this stuff every time I make a change
+- [X] Use Tailwind CSS to make things ✨ p r e t t y ✨
+- [ ] "Fix" the existing infrastructure definitions that are probably missing fields (I got things to work by importing my existing infrastructure into my CDK stack)
+- [ ] Move static assets behind CloudFront
+- [ ] Define the rest of the infrastructure using CDK
