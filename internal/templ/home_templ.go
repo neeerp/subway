@@ -29,7 +29,7 @@ func Home(station string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>Random Station!</title><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script><link rel=\"stylesheet\" type=\"text/css\" href=\"https://david-go-subway-page.s3.amazonaws.com/style.css\"></head><body class=\"bg-gray-100 flex items-center justify-center min-h-screen\"><div class=\"bg-white p-8 rounded-1g shadow-md text-center\"><h1 class=\"text-4xl font-bold mb-6\">Random Subway Station!</h1><p class=\"text-xl\">Your random subway station to explore today is <b><span id=\"station\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html><head><title>Random Station!</title><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script><link rel=\"stylesheet\" type=\"text/css\" href=\"https://david-go-subway-page.s3.amazonaws.com/style.css\"></head><body class=\"bg-gray-100 flex items-center justify-center min-h-screen\"><div class=\"bg-white p-8 rounded-1g shadow-md text-center w-5/6 lg:w-1/3\"><h1 class=\"text-4xl font-bold mb-6\">Random Subway Station!</h1><p class=\"text-xl\">Your random subway station to explore today is <b><span id=\"station\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
